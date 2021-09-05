@@ -1,2 +1,1 @@
-# dicer
-Roll and Dice game
+# roll-and-dice
