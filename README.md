@@ -1,1 +1,1 @@
-# roll-and-dice
+# Реализация интерфейса через Python Toolkit Interface
