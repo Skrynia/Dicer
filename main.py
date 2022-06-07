@@ -2,6 +2,7 @@
 Roll and dice game
 '''
 import tkinter as tk
+from tkinter import ttk
 import random as rd
 
 
@@ -16,20 +17,20 @@ def main():
 
     window = tk.Tk()
     edge = int(window.winfo_screenheight()/2)
-    window.geometry(str(edge) + 'x' + str(edge))
+    # window.geometry(str(edge) + 'x' + str(edge))
     window.title('Dicer')
 
     dice = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅']
 
-    roll = tk.Label(window,
+    roll = ttk.Label(window,
                     text=rd.choice(dice),
                     font=('Arial', int(edge/2)))
 
-    play = tk.Button(window,
+    play = ttk.Button(window,
                      text='Roll',
                      command=rolling_dice)
 
-    close = tk.Button(window,
+    close = ttk.Button(window,
                       text='Close',
                       command=window.destroy)
 
