@@ -5,15 +5,14 @@ import tkinter as tk
 from tkinter import ttk
 import random as rd
 
+def rolling_dice(roll, dice):
+    roll.configure(text=rd.choice(dice))
+    roll.pack()
 
 def main():
     '''
     Main game loop
     '''
-
-    def rolling_dice():
-        roll.configure(text=rd.choice(dice))
-        roll.pack()
 
     window = tk.Tk()
     edge = int(window.winfo_screenheight()/2)
@@ -28,15 +27,10 @@ def main():
 
     play = ttk.Button(window,
                      text='Roll',
-                     command=rolling_dice)
-
-    close = ttk.Button(window,
-                      text='Close',
-                      command=window.destroy)
+                     command=lambda: rolling_dice(roll, dice))
 
     roll.pack(expand=True)
     play.pack(fill='x')
-    close.pack(fill='x')
 
     window.mainloop()
 
