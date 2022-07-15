@@ -13,11 +13,10 @@ def main():
 
         try:
             dices.remove(roll.cget('text'))
-
         except NameError:
-            return rd.choice(DICES)
+            pass
 
-        return rd.choice(dices)
+        return dices
 
     root = tk.Tk()
 
