@@ -16,7 +16,7 @@ def main():
         except NameError:
             pass
 
-        return dices
+        return rd.choice(dices)
 
     root = tk.Tk()
 
