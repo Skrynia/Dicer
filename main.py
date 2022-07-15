@@ -1,38 +1,32 @@
-'''
-Roll and dice game
-'''
 import tkinter as tk
 from tkinter import ttk
+
 import random as rd
 
-def rolling_dice(roll, dice):
-    roll.configure(text=rd.choice(dice))
-    roll.pack()
+
+DICES = '⚀', '⚁', '⚂', '⚃', '⚄', '⚅'
+
 
 def main():
-    '''
-    Main game loop
-    '''
+    def do_dice():
+        dices = list(DICES)
 
-    window = tk.Tk()
-    edge = int(window.winfo_screenheight()/2)
-    # window.geometry(str(edge) + 'x' + str(edge))
-    window.title('Dicer')
+        try:
+            dices.remove(roll.cget('text'))
 
-    dice = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅']
+        except NameError:
+            return rd.choice(DICES)
 
-    roll = ttk.Label(window,
-                    text=rd.choice(dice),
-                    font=('Arial', int(edge/2)))
+        return rd.choice(dices)
 
-    play = ttk.Button(window,
-                     text='Roll',
-                     command=lambda: rolling_dice(roll, dice))
+    root = tk.Tk()
 
-    roll.pack(expand=True)
-    play.pack(fill='x')
+    heigh = root.winfo_screenheight()
+    roll = ttk.Label(font=(None, int(heigh/4)), text=do_dice())
+    roll.pack()
+    roll.bind('<Button-1>', lambda _: roll.configure(text=do_dice()))
 
-    window.mainloop()
+    root.mainloop()
 
 
 if __name__ == '__main__':
